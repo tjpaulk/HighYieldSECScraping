@@ -1,0 +1,8 @@
+set FLASK_APP=sec_web_app.py
+set FLASK_ENV=development
+flask run
+
+Working through issue with modules from other directories introduced using Visual Studio Code
+No need for VS Code.
+
+GGN - 0001313510

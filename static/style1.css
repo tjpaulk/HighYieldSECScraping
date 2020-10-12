@@ -1,0 +1,13 @@
+body {
+    font-family: comic-sans;
+    color: red;
+    background-color: grey;
+}
+
+table {
+    width: 50%;
+}
+
+th {
+    height: 50px;
+}
