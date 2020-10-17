@@ -40,7 +40,7 @@ class MyTestCase(unittest.TestCase):
         form_type_list = [{'filing': {'report_num': '000162828020003097', 'filing_date': '2020-03-05',
                                       'url': 'https://www.sec.gov/Archives/edgar/data//0001465885/000162828020003097/'
                                              '0001628280-20-003097-index.html', 'report_type': 'Form 10-K'}}]
-        links = make_data_links(form_type_list, cik_num)
+        links = make_data_links(form_type_list, cik_num, "/R2.htm")
         self.assertEqual(expected, links)
 
     def test_get_sec_data(self):

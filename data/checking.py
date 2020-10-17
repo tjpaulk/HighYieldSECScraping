@@ -1,3 +1,6 @@
+# To be deleted.  This was taken from the template this section of the project was
+# created from and only exists as reference material.
+
 import pyodbc
 
 create_sec_data = """

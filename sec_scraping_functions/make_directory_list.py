@@ -1,24 +1,45 @@
-# This function makes a list of dictionaries for all of the SEC reports for a company
-# using it's CIK number.
 from .make_url import make_url
 from bs4 import BeautifulSoup
+from data import get_most_recent_filing
 import requests
 
 
-# base_url = r"https://www.sec.gov/Archives/edgar/data/"
-# cik_num = '0001465885'
+def make_directory_list(base_url: str, cik_num: str, limit="") -> list:
+    """
+    This function creates a list of dictionaries containing all filings for a company based on its
+    cik number.  The list is then stored in the database elsewhere in the project.
 
+    Parameters
+    ----------
+    base_url : str
+        A string containing the root url.
+    cik_num : str
+        A string with the company cik number being researched.
+    limit : int
+        An optional parameter used to limit the number of filings returned.  Primarily used to speed up unit testing.
 
-def make_directory_list(base_url, cik_num, limit=""):
+    Returns
+    -------
+        A list of dictionaries containing information about each filing found.
+    """
+
     directory_list = []
 
     filing_directory = make_url(base_url, [cik_num, 'index.json'])
 
+    # Get's the latest filing saved in db.
+    last_saved = get_most_recent_filing(cik_num)
+
     data = requests.get(filing_directory).json()
+
     if limit == "":
         limit = (len(data['directory']['item']) - 1)
 
     for item in data['directory']['item'][:limit]:
+
+        if last_saved[0] == item['name']:
+            # Checks if the current filing exists in the db and returns 'directory_list' if true.
+            return directory_list
 
         collection_dict = {}
 

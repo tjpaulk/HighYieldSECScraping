@@ -1,8 +1,13 @@
-# takes a directory of forms and picks out all of the forms of a
-# desired type and creates a list of dictionaries.
+"""
+    Picks out desired forms of a single type.
+    :parameter (list of dictionary containing filings, string of the form desired,
+                optional integer limiter to restrict the number of forms returned)
+
+    :returns at list of the forms requested.
+"""
 
 
-def select_form_list(directory, form_type, limit=""):
+def select_form_list(directory: list, form_type: str, limit="") -> list:
     form_type_list = []
 
     if limit == "":

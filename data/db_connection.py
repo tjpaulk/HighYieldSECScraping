@@ -1,7 +1,17 @@
+"""
+    Creates a database connection using pyodbc.  May switch to sqlAlchemy at some point when I
+    become more familiar with working with db's.
+    :parameter (none)
+
+    :returns a cursor object to be used elsewhere.
+
+    Future goal:  Can this be done using a with command?
+"""
+
 import pyodbc
 
 
-def db_connection():
+def db_connection() -> object:
     # Connection string
     DRIVER = '{ODBC Driver 17 for SQL Server}'
     SERVER_NAME = "localhost\\SQLEXPRESS"

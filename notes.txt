@@ -5,4 +5,14 @@ flask run
 Working through issue with modules from other directories introduced using Visual Studio Code
 No need for VS Code.
 
-GGN - 0001313510
+GGN - 0001313510 - Will need a different solution to evaluate this company
+SUNS - 0001508171 - has 10k
+SRET - REIT EFT - not finding in SEC search
+SDIV - ETF - not finding in SEC search
+QYLD - ETF - not finding in SEC search
+GOF - 0001380936
+GAIN - 0001321741
+FDUS - 0001513363
+WMC - 0001465885
+
+Need to review documentation rules and improve documentations in code.

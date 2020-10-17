@@ -1,12 +1,20 @@
-# This function creates a list of dictionaries with the
-# raw table information from our form type.
+"""
+    This function collects table data from a list of dictionaries
+    :parameter  a list of dictionaries containing the interactive links created in function
+    make_data_links
 
+    creates a dictionary of table data from each link
+
+    :returns a list of dictionaries for each tables data
+
+
+"""
 from bs4 import BeautifulSoup
 import requests
 
 
 # iterate through each link of data
-def get_sec_data(data_list):
+def get_sec_data(data_list: list) -> list:
     tables_data = []
 
     for data in data_list:
