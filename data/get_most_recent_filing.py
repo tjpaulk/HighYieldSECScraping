@@ -14,5 +14,5 @@ def get_most_recent_filing(cik_num: str) -> str:
     cursor_object = db_connection()
     cursor_object.execute(check_filing)
     latest = cursor_object.fetchone()
-    print(latest)
+
     return latest
