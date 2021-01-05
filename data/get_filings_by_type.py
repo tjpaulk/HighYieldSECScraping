@@ -20,7 +20,7 @@ def get_filings_by_type(cik_num: str, form_type: str) -> list:
 
     filing_by_type = \
         """
-        SELECT TOP (10) [filing_date],[url]
+        SELECT TOP (10) [filing_date],[url],[report_num]
         FROM [HighYieldSEC].[dbo].[filings_table]
         WHERE [report_type] = '{}' AND [cik_num] = '{}'
         ORDER BY [filing_date] DESC

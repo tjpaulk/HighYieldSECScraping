@@ -18,17 +18,19 @@ def table_templates(key: str) -> str:
                 [filing_date],
                 [url],
                 [report_type],
+                [report_name],
                 [cik_num]
             )
             VALUES
             (
-                ?, ?, ?, ?, ?
+                ?, ?, ?, ?, ?, ?
             )
             """,
             'sec_data':
             """
             INSERT INTO [HighYieldSEC].[dbo].[sec_data]
              (
+                [filing_number],
                 [date_filed],
                 [cik_num],
                 [total_assets],
@@ -38,7 +40,7 @@ def table_templates(key: str) -> str:
             )
             VALUES
             (
-                ?, ?, ?, ?, ?, ?
+                ?, ?, ?, ?, ?, ?, ?
             )
             """
         }

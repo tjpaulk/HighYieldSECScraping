@@ -1,13 +1,17 @@
 body {
     font-family: comic-sans;
-    color: red;
-    background-color: grey;
+    color: green;
+    background-color: pink;
 }
 
 table {
-    width: 50%;
+    width: 25%;
+    text-align: center;
+    background-color: yellow;
+    color: black;
 }
 
 th {
-    height: 50px;
+    height: 25px;
+    text-align: center;
 }

@@ -6,13 +6,15 @@ Working through issue with modules from other directories introduced using Visua
 No need for VS Code.
 
 GGN - 0001313510 - Will need a different solution to evaluate this company
-SUNS - 0001508171 - has 10k
+SUNS - 0001508171 - has 10k but does not have interactive data option
 SRET - REIT EFT - not finding in SEC search
 SDIV - ETF - not finding in SEC search
 QYLD - ETF - not finding in SEC search
 GOF - 0001380936
 GAIN - 0001321741
 FDUS - 0001513363
-WMC - 0001465885
+WMC - 0001465885 - has 10k and has interactive data
 
 Need to review documentation rules and improve documentations in code.
+
+May want to create classes for different company types to create differing paths of data searching.

@@ -12,9 +12,16 @@
 <h2>My first attempt at a web app that allows the user to
     scrap data from the SEC and display in their browser</h2>
 
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-3">
 {% for table in tables %}
-    {{titles[loop.index]}}
     {{ table|safe }}
 {% endfor %}
+    </div>
+</div>
 </body>
+
+
 </html>

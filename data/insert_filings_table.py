@@ -24,6 +24,9 @@ def insert_filings_table(directory_list: list, table: str, table_name: str) -> N
     Perhaps create a list of templates elsewhere to insert as a parameter.
     Also look at inserting all of the data at once instead of looping through.  Perhaps
     by using a dataframe or list of lists.
+
+    Eventually save only certain form types since most will never be used.  Need to figure out
+    which ones to keep for differing company types.
     """
 
     cursor_object = db_connection()

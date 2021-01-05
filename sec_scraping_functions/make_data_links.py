@@ -13,15 +13,17 @@
 def make_data_links(form_list: list, cik_num: str, table_ref: str) -> list:
     links = []
     for form in form_list:
-        link = form['filing']['url']
+        # link = form['filing']['url']
+        link = form[1]
         accession = link[-31:-11]
 
-        form['filing'][
-            'interactive_url'] = "https://www.sec.gov/cgi-bin/viewer?action=view&cik=" \
-                                 "{}&accession_number={}&xbrl_type=v#".format(
-            cik_num, accession)
-        form['filing']['cheat_link'] = r"https://www.sec.gov/Archives/edgar/data//0001465885/" + \
-                                       form['filing']['report_num'] + table_ref  # "/R2.htm"
-        links.append([form['filing']['interactive_url'], form['filing']['cheat_link']])
+        link1 = "https://www.sec.gov/cgi-bin/viewer?action=view&cik={}&accession_number={}&xbrl_type=v#"\
+                .format(cik_num, accession),
+        # form['filing']['cheat_link'] = \
+        link2 = r"https://www.sec.gov/Archives/edgar/data//0001465885/{}/{}".format(form[2], table_ref)
+
+        list3 = [link1, link2]
+        print(list3)
+        links.append(list3)
 
     return links

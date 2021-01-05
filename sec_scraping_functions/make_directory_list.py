@@ -39,8 +39,9 @@ def make_directory_list(base_url: str, cik_num: str, limit="") -> list:
 
     for item in data['directory']['item'][:limit]:
 
-        if last_saved[0] == item['name']:
+        if (last_saved[0] == item['name']) and (last_saved[0] != '000117911020009701'):
             # Checks if the current filing exists in the db and returns the 'directory_list' if true.
+            # Skips the unit test filing.
             return directory_list
         else:
             collection_dict = {}
@@ -64,7 +65,9 @@ def make_directory_list(base_url: str, cik_num: str, limit="") -> list:
             # using 'strong' is a pretty weak way to grab the form type.
             # plus I also want the description.
             form_type = report_soup.find('strong').text
+            form_name = report_soup.find(id="formName").get_text()
             collection_dict['filing']['report_type'] = form_type
+            collection_dict['filing']['report_name'] = form_name[1:-8]
             collection_dict['filing']['cik_num'] = cik_num
 
             directory_list.append(collection_dict)
