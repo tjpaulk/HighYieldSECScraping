@@ -1,7 +1,7 @@
 from datetime import datetime
 from bs4 import BeautifulSoup, element, NavigableString
 import requests
-import bs4
+# import bs4
 
 
 # Make the dictionary a dictionary of key year / month to contain the dictionaries field / data
@@ -21,7 +21,7 @@ def test(cik_num, link_list):
 
             if index == 0:
                 reg_row = [ele.text.strip() for ele in row.find_all('th')]
-                dummy_dict['filing_date'] = strip_punc = reg_row[1].replace(',', "").replace('.', '')
+                dummy_dict['filing_date'] = reg_row[1].replace(',', "").replace('.', '')
                 # print(strip_punc)
                 # dt = datetime.strptime(strip_punc, '%b %d %Y')
                 # print(dt, type(dt))
@@ -41,7 +41,8 @@ def test(cik_num, link_list):
                     elif len(row.find_all('td')) != 0 and row.find_all(class_="nump"):
                         reg_row = [ele.text.strip() for ele in row.find_all('td')]
 
-                        dummy_dict[key] = [int(i) for i in reg_row[1].replace(',', '').replace('u', ' ').split() if i.isdigit()][0]
+                        dummy_dict[key] = [int(i) for i in reg_row[1].replace(',', '')
+                                           .replace('u', ' ').split() if i.isdigit()][0]
 
-                        print('Success')
+                        # print('Success')
         print('The result is :', dummy_dict)

@@ -36,6 +36,7 @@ def table_templates(key: str) -> str:
                 [total_assets],
                 [total_liabilities],
                 [common_shares],
+                [new_shares],
                 [div_paid]
             )
             VALUES
@@ -46,3 +47,5 @@ def table_templates(key: str) -> str:
         }
 
     return template_dict[key]
+
+

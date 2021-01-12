@@ -7,7 +7,8 @@
 """
 
 
-def select_form_list(directory: list, form_type: str, limit="") -> list:
+def select_form_list(directory: list, form_type: str, limit: int = "") -> list:
+
     form_type_list = []
 
     if limit == "":

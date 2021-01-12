@@ -18,3 +18,8 @@ WMC - 0001465885 - has 10k and has interactive data
 Need to review documentation rules and improve documentations in code.
 
 May want to create classes for different company types to create differing paths of data searching.
+
+Insert a check in relevant function to validate that stock cik provides link to interactive tables.
+
+Create a web page that takes the interactive link and creates user options to toggle between R tables
+and dates for specific R tables.  Possibly expand on this for dynamic user data storage in db.

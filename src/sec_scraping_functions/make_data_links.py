@@ -17,13 +17,13 @@ def make_data_links(form_list: list, cik_num: str, table_ref: str) -> list:
         link = form[1]
         accession = link[-31:-11]
 
-        link1 = "https://www.sec.gov/cgi-bin/viewer?action=view&cik={}&accession_number={}&xbrl_type=v#"\
+        link1 = r"https://www.sec.gov/cgi-bin/viewer?action=view&cik={}&accession_number={}&xbrl_type=v#"\
                 .format(cik_num, accession),
         # form['filing']['cheat_link'] = \
         link2 = r"https://www.sec.gov/Archives/edgar/data//0001465885/{}/{}".format(form[2], table_ref)
 
         list3 = [link1, link2]
-        print(list3)
+        # print(list3)
         links.append(list3)
 
     return links

@@ -1,7 +1,7 @@
+from src.sec_scraping_functions import *
 import unittest
-import sys
-sys.path.append('E:/MyPyProjects/SECWebScraping/sec_scraping_functions')
-from sec_scraping_functions import *
+# import sys
+# sys.path.append('E:/MyPyProjects/SECWebScraping/sec_scraping_functions')
 
 
 class MyTestCase(unittest.TestCase):
@@ -21,14 +21,14 @@ class MyTestCase(unittest.TestCase):
         # to test against full list remove 3rd parameter
         self.assertEqual(expected, result[0])
 
-    def test_select_form_list(self):
+    def test_select_form_list(self) -> None:
         expected = {'filing': {'cik_num': '0001465885', 'report_num': '000162828020003097', 'filing_date': '2020-03-05',
                                'url': 'https://www.sec.gov/Archives/edgar/data//0001465885/'
                                       '000162828020003097/0001628280-20-003097-index.html', 'report_type': 'Form 10-K'}}
         base_url = r"https://www.sec.gov/Archives/edgar/data/"
         cik_num = '0001465885'
         directory = make_directory_list(base_url, cik_num, 50)
-        form_type = 'Form 10-K'
+        form_type = "Form 10-K"
         result = select_form_list(directory, form_type)
         self.assertEqual(expected, result[0])
 

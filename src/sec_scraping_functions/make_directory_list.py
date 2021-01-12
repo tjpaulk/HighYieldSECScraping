@@ -1,10 +1,10 @@
 from .make_url import make_url
 from bs4 import BeautifulSoup
-from data import get_most_recent_filing
+from src.data import get_most_recent_filing
 import requests
 
 
-def make_directory_list(base_url: str, cik_num: str, limit="") -> list:
+def make_directory_list(base_url: str, cik_num: str, limit: int = "") -> list:
     """
     This function creates a list of dictionaries containing all filings for a company based on its
     cik number.  The list is then stored in the database elsewhere in the project.

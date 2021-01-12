@@ -1,4 +1,4 @@
-from data import db_connection
+from src.data import db_connection
 
 
 def get_filings_by_type(cik_num: str, form_type: str) -> list:
@@ -30,4 +30,5 @@ def get_filings_by_type(cik_num: str, form_type: str) -> list:
     cursor_object.execute(filing_by_type)
     type_list = cursor_object.fetchall()
 
+    assert isinstance(type_list, object)
     return type_list
