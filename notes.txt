@@ -23,3 +23,6 @@ Insert a check in relevant function to validate that stock cik provides link to 
 
 Create a web page that takes the interactive link and creates user options to toggle between R tables
 and dates for specific R tables.  Possibly expand on this for dynamic user data storage in db.
+
+Once proof of concept is at a self sufficient point, develop classes for tables to reduce reliance
+on dictionary collections.
