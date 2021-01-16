@@ -14,5 +14,5 @@ df = pd.DataFrame({'Q': [0, 1, 2, 3, 4],
 @app.route("/", methods=("POST", "GET"))
 def welcome():
     return render_template("welcome.html",
-                           tables=[df.to_html(classes='data', index=False)],
+                           tables=[df.to_html(classes='sql_functions', index=False)],
                            titles=df.columns.values)

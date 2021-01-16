@@ -1,6 +1,6 @@
 from src.sec_scraping_functions import make_directory_list
-from src.data import table_templates
-from src.data import get_filings_by_type
+from src.sql_functions import table_templates
+from src.sql_functions import get_filings_by_type
 from src.sec_scraping_functions import make_data_links, test
 """
     This exists as it is because the project got messed up when I switched to VS Code because

@@ -1,4 +1,4 @@
-from src.data import db_connection
+from src.sql_functions import db_connection
 
 
 def get_filings_by_type(cik_num: str, form_type: str) -> list:

@@ -1,6 +1,8 @@
+from typing import Dict, List, Any
+
 from .make_url import make_url
 from bs4 import BeautifulSoup
-from src.data import get_most_recent_filing
+from src.sql_functions import get_most_recent_filing
 import requests
 
 
@@ -44,9 +46,8 @@ def make_directory_list(base_url: str, cik_num: str, limit: int = "") -> list:
             # Skips the unit test filing.
             return directory_list
         else:
-            collection_dict = {}
 
-            # cleaning up empty data field
+            # cleaning up empty sql_functions field
             item.pop('size')
 
             # Modify item['name'] to create a working report url.
@@ -55,20 +56,18 @@ def make_directory_list(base_url: str, cik_num: str, limit: int = "") -> list:
             report_url = make_url(
                 base_url, [cik_num, item['name'] + '/' + second_dash])
 
-            collection_dict['filing'] = {}
-            collection_dict['filing']['report_num'] = item['name']
-            collection_dict['filing']['filing_date'] = item['last-modified'][:10]
-            collection_dict['filing']['url'] = report_url
-            # collect and add form type.
             content = requests.get(report_url).content
             report_soup = BeautifulSoup(content, features='html.parser')
-            # using 'strong' is a pretty weak way to grab the form type.
-            # plus I also want the description.
             form_type = report_soup.find('strong').text
             form_name = report_soup.find(id="formName").get_text()
-            collection_dict['filing']['report_type'] = form_type
-            collection_dict['filing']['report_name'] = form_name[1:-8]
-            collection_dict['filing']['cik_num'] = cik_num
+
+            # removing 'filing' level key - likely not needed if creating a list
+            collection_dict = {'report_num': item['name'],
+                               'filing_date': item['last-modified'][:10],
+                               'url': report_url,
+                               'cik_num': cik_num,
+                               'report_type': form_type,
+                               'report_name': form_name[1:-8]}
 
             directory_list.append(collection_dict)
 

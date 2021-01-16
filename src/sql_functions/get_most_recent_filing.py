@@ -1,4 +1,4 @@
-from src.data import db_connection
+from src.sql_functions import db_connection
 
 
 def get_most_recent_filing(cik_num: str) -> str:

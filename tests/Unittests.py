@@ -56,7 +56,7 @@ class MyTestCase(unittest.TestCase):
                                  'cheat_link': 'https://www.sec.gov/Archives/edgar/data//0001465885/'
                                                '000162828020003097/R2.htm'}}]
         result = get_sec_data(list_dict)
-        # had to convert the function data to a string to compare to expected data.
+        # had to convert the function sql_functions to a string to compare to expected sql_functions.
         result1 = str(result)
         self.assertEqual(expected, result1)
 

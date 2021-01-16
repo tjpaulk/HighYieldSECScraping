@@ -4,7 +4,7 @@ import requests
 # import bs4
 
 
-# Make the dictionary a dictionary of key year / month to contain the dictionaries field / data
+# Make the dictionary a dictionary of key year / month to contain the dictionaries field / sql_functions
 def test(cik_num, link_list):
     dummy_dict = {'cik_num': cik_num,
                   'filing_date': 'filing date',
@@ -28,8 +28,8 @@ def test(cik_num, link_list):
 
             for key, value in dummy_dict.items():
                 # Must convert bs4 object to string to be able to search for identifying text string
-                # in bs4 objects.  By using SEC JS / CSS onclick parameter, the desired data can be
-                # isolated to extract without have to collect all row data.
+                # in bs4 objects.  By using SEC JS / CSS onclick parameter, the desired sql_functions can be
+                # isolated to extract without have to collect all row sql_functions.
                 if key in str(row):
 
                     if key == 'defref_us-gaap_CommonStockValue':

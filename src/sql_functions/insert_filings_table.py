@@ -20,9 +20,9 @@ def insert_filings_table(directory_list: list, table: str, table_name: str) -> N
     -------
     None
 
-    Future:  Can this be improved so that it can add data to different tables?
+    Future:  Can this be improved so that it can add sql_functions to different tables?
     Perhaps create a list of templates elsewhere to insert as a parameter.
-    Also look at inserting all of the data at once instead of looping through.  Perhaps
+    Also look at inserting all of the sql_functions at once instead of looping through.  Perhaps
     by using a dataframe or list of lists.
 
     Eventually save only certain form types since most will never be used.  Need to figure out

@@ -1,26 +1,25 @@
 """
-    This function collects table data from a list of dictionaries
+    This function collects table sql_functions from a list of dictionaries
+
     :parameter  a list of dictionaries containing the interactive links created in function
     make_data_links
 
-    creates a dictionary of table data from each link
+    creates a dictionary of table sql_functions from each link
 
-    :returns a list of dictionaries for each tables data
-
-
+    :returns a list of dictionaries for each tables sql_functions
 """
 from bs4 import BeautifulSoup
 import requests
 
 
-# iterate through each link of data
+# iterate through each link of sql_functions
 def get_sec_data(data_list: list) -> list:
     tables_data = []
 
     for data in data_list:
         table_link = data['filing']['cheat_link']
-        # create a new dictionary each iteration to store the data
-        table_data = {'headers': [], 'sections': [], 'data': []}
+        # create a new dictionary each iteration to store the sql_functions
+        table_data = {'headers': [], 'sections': [], 'sql_functions': []}
 
         content = requests.get(table_link).content
         data_soup = BeautifulSoup(content, features="html.parser")
@@ -35,7 +34,7 @@ def get_sec_data(data_list: list) -> list:
             if len(row.find_all('th')) == 0 and len(row.find_all('strong')) == 0:
 
                 reg_row = [ele.text.strip() for ele in cols]
-                table_data['data'].append(reg_row)
+                table_data['sql_functions'].append(reg_row)
 
             # if it's a regular row and a section but not a table header
             elif len(row.find_all('th')) == 0 and len(row.find_all('strong')) != 0:

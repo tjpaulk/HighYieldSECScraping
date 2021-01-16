@@ -26,3 +26,5 @@ and dates for specific R tables.  Possibly expand on this for dynamic user data 
 
 Once proof of concept is at a self sufficient point, develop classes for tables to reduce reliance
 on dictionary collections.
+
+000175272420248292,2020-11-25,https://www.sec.gov/Archives/edgar/data//0001313510/000175272420248292/0001752724-20-248292-index.html,0001313510,Form NPORT-P,Form NPORT-P - Monthly Portfolio Investments Report on Form N-PORT (Public):
