@@ -34,7 +34,7 @@ def insert_filings_table(directory_list: list, table: str, table_name: str) -> N
     for filing in directory_list:
         value_list = []
 
-        value = filing['filing']['report_num']
+        value = filing['report_num']
 
         cursor_object.execute("""SELECT report_num
                                 FROM HighYieldSEC.dbo.{} 
@@ -43,8 +43,9 @@ def insert_filings_table(directory_list: list, table: str, table_name: str) -> N
         exists = cursor_object.fetchone()
 
         if exists is None:
-            for x in filing['filing'].values():
+            for x in filing.values():
                 value_list.append(x)
+                print(x)
 
             cursor_object.execute(table, value_list)
             cursor_object.commit()

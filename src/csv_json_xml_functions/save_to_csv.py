@@ -3,10 +3,11 @@ import os
 
 
 def save_to_csv(directory_list: list) -> None:
-
+    print(directory_list)
     to_csv = directory_list
     keys = to_csv[0].keys()
-    csv_file = '../sec_data_files/test.csv'
+
+    csv_file = '../sec_data_files/filing_list.csv'
     csv_file_exists = os.path.isfile(csv_file)
 
     with open(csv_file, 'a', newline='') as output_file:

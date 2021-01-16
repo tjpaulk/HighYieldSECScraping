@@ -1,10 +1,10 @@
 from src.sec_scraping_functions import make_directory_list
 from src.sql_functions import table_templates
+from src.sql_functions import insert_filings_table
 from src.csv_json_xml_functions.save_to_csv import *
+from src.csv_json_xml_functions.save_to_json import *
 
-import csv
-from os import path
-import os
+
 
 """
     This module is for proof of concept of the goal to scrape SEC information and store specific 
@@ -27,11 +27,13 @@ table_name: str = 'filings_table'
 test = []
 
 
-for cik_dict in cik_list[:1]:
+for cik_dict in cik_list[:3]:
     for key, cik_num in cik_dict.items():
 
         directory_list = make_directory_list(
             "https://www.sec.gov/Archives/edgar/data/", cik_num)
+        if not directory_list:
+            continue
 
         table_name = 'filings_table'
         table = table_templates(table_name)
@@ -40,35 +42,4 @@ for cik_dict in cik_list[:1]:
 
         save_to_csv(directory_list)
 
-
-
-        # toCSV = directory_list
-        # keys = toCSV[0].keys()
-        # csv_file = '../sec_data_files/test.csv'
-        # csv_file_exists = os.path.isfile(csv_file)
-        #
-        # with open(csv_file, 'a', newline='') as output_file:
-        #     dict_writer = csv.DictWriter(output_file, keys)
-        #     if not csv_file_exists:
-        #         dict_writer.writeheader()
-        #         dict_writer.writerows(toCSV)
-        #         print('CSV file created.')
-        #     else:
-        #         with open(csv_file, 'r') as read_file:
-        #             report_nums = []
-        #             for line in read_file.readlines():
-        #                 array = line.split(',')
-        #                 report_num = array[0]
-        #                 report_nums.append(report_num)
-        #
-        #             for row in toCSV:
-        #                 exists = False
-        #                 for num in report_nums:
-        #                     exists = (row['report_num'] == num)
-        #                     if exists:
-        #                         print('filing is already listed.')
-        #                         break
-        #
-        #                 if not exists:
-        #                     dict_writer.writerow(row)
-        #                     print('New line of data added.')
+        save_to_json(directory_list)

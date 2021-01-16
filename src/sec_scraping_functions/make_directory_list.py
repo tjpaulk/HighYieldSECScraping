@@ -65,9 +65,9 @@ def make_directory_list(base_url: str, cik_num: str, limit: int = "") -> list:
             collection_dict = {'report_num': item['name'],
                                'filing_date': item['last-modified'][:10],
                                'url': report_url,
-                               'cik_num': cik_num,
                                'report_type': form_type,
-                               'report_name': form_name[1:-8]}
+                               'report_name': form_name[1:-8],
+                               'cik_num': cik_num}
 
             directory_list.append(collection_dict)
 

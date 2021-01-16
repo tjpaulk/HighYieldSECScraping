@@ -1,0 +1,58 @@
+[
+    {
+        "cik_num": "0001508171",
+        "filing_date": "2021-01-08",
+        "report_name": "Form 8-K - Current report:",
+        "report_num": "000117184321000179",
+        "report_type": "Form 8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data//0001508171/000117184321000179/0001171843-21-000179-index.html"
+    },
+    {
+        "cik_num": "0001508171",
+        "filing_date": "2020-11-05",
+        "report_name": "Form 8-K - Current report:",
+        "report_num": "000117184320007687",
+        "report_type": "Form 8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data//0001508171/000117184320007687/0001171843-20-007687-index.html"
+    },
+    {
+        "cik_num": "0001508171",
+        "filing_date": "2020-11-05",
+        "report_name": "Form 10-Q - Quarterly report [Sections 13 or 15(d)]:",
+        "report_num": "000119312520286846",
+        "report_type": "Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data//0001508171/000119312520286846/0001193125-20-286846-index.html"
+    },
+    {
+        "cik_num": "0001508171",
+        "filing_date": "2020-12-08",
+        "report_name": "Form 8-K - Current report:",
+        "report_num": "000117184320008450",
+        "report_type": "Form 8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data//0001508171/000117184320008450/0001171843-20-008450-index.html"
+    },
+    {
+        "cik_num": "0001380936",
+        "filing_date": "2020-12-04",
+        "report_name": "Form 4 - Statement of changes in beneficial ownership of securities:",
+        "report_num": "000117911020011679",
+        "report_type": "Form 4",
+        "url": "https://www.sec.gov/Archives/edgar/data//0001380936/000117911020011679/0001179110-20-011679-index.html"
+    },
+    {
+        "cik_num": "0001380936",
+        "filing_date": "2020-10-27",
+        "report_name": "Form NPORT-P - Monthly Portfolio Investments Report on Form N-PORT (Public):",
+        "report_num": "000175272420216723",
+        "report_type": "Form NPORT-P",
+        "url": "https://www.sec.gov/Archives/edgar/data//0001380936/000175272420216723/0001752724-20-216723-index.html"
+    },
+    {
+        "cik_num": "0001380936",
+        "filing_date": "2020-10-05",
+        "report_name": "Form EFFECT - Notice of Effectiveness:",
+        "report_num": "999999999520002717",
+        "report_type": "Form EFFECT",
+        "url": "https://www.sec.gov/Archives/edgar/data//0001380936/999999999520002717/9999999995-20-002717-index.html"
+    }
+]
