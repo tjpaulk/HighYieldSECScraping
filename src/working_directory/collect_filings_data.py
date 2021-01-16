@@ -1,6 +1,7 @@
 from src.sec_scraping_functions import make_directory_list
 from src.sql_functions import table_templates
-from src.csv_json_xml_functions import save_to_csv
+from src.csv_json_xml_functions.save_to_csv import *
+
 import csv
 from os import path
 import os
@@ -25,7 +26,8 @@ cik_list: list = [{'GGN': '0001313510'}, {'SUNS': '0001508171'}, {'GOF': '000138
 table_name: str = 'filings_table'
 test = []
 
-for cik_dict in cik_list[1:2]:
+
+for cik_dict in cik_list[:1]:
     for key, cik_num in cik_dict.items():
 
         directory_list = make_directory_list(
@@ -36,34 +38,37 @@ for cik_dict in cik_list[1:2]:
 
         # insert_filings_table(directory_list, table, table_name)
 
-        # save_to_cvs(directory_list)
-        toCSV = directory_list
-        keys = toCSV[0].keys()
-        csv_file = '../sec_data_files/test.csv'
-        csv_file_exists = os.path.isfile(csv_file)
+        save_to_csv(directory_list)
 
-        with open(csv_file, 'a', newline='') as output_file:
-            dict_writer = csv.DictWriter(output_file, keys)
-            if not csv_file_exists:
-                dict_writer.writeheader()
-                dict_writer.writerows(toCSV)
-                print('CSV file created.')
-            else:
-                with open(csv_file, 'r') as read_file:
-                    report_nums = []
-                    for line in read_file.readlines():
-                        array = line.split(',')
-                        report_num = array[0]
-                        report_nums.append(report_num)
 
-                    for row in toCSV:
-                        exists = False
-                        for num in report_nums:
-                            exists = (row['report_num'] == num)
-                            if exists:
-                                print('filing is already listed.')
-                                break
 
-                        if not exists:
-                            dict_writer.writerow(row)
-                            print('New line of data added.')
+        # toCSV = directory_list
+        # keys = toCSV[0].keys()
+        # csv_file = '../sec_data_files/test.csv'
+        # csv_file_exists = os.path.isfile(csv_file)
+        #
+        # with open(csv_file, 'a', newline='') as output_file:
+        #     dict_writer = csv.DictWriter(output_file, keys)
+        #     if not csv_file_exists:
+        #         dict_writer.writeheader()
+        #         dict_writer.writerows(toCSV)
+        #         print('CSV file created.')
+        #     else:
+        #         with open(csv_file, 'r') as read_file:
+        #             report_nums = []
+        #             for line in read_file.readlines():
+        #                 array = line.split(',')
+        #                 report_num = array[0]
+        #                 report_nums.append(report_num)
+        #
+        #             for row in toCSV:
+        #                 exists = False
+        #                 for num in report_nums:
+        #                     exists = (row['report_num'] == num)
+        #                     if exists:
+        #                         print('filing is already listed.')
+        #                         break
+        #
+        #                 if not exists:
+        #                     dict_writer.writerow(row)
+        #                     print('New line of data added.')
