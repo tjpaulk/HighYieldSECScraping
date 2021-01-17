@@ -3,6 +3,7 @@ from src.sql_functions import table_templates
 from src.sql_functions import insert_filings_table
 from src.csv_json_xml_functions.save_to_csv import *
 from src.csv_json_xml_functions.save_to_json import *
+from src.csv_json_xml_functions.save_to_xml import *
 
 
 
@@ -28,7 +29,7 @@ test = []
 
 
 for cik_dict in cik_list[:3]:
-    for key, cik_num in cik_dict.items():
+    for cik_num in cik_dict.values():
 
         directory_list = make_directory_list(
             "https://www.sec.gov/Archives/edgar/data/", cik_num)
@@ -40,6 +41,8 @@ for cik_dict in cik_list[:3]:
 
         # insert_filings_table(directory_list, table, table_name)
 
-        save_to_csv(directory_list)
+        # save_to_csv(directory_list)
 
-        save_to_json(directory_list)
+        # save_to_json(directory_list)
+
+        # save_to_xml(directory_list)
