@@ -1,11 +1,13 @@
 from bs4 import BeautifulSoup
-from datetime import date
 import requests
 
 
 # should work for 1 company- cik 0001465885.  Need to research further as other companies may list
 # data differently on sec interactive tables.
-def make_data_list(links: str, cik: str) -> list:
+from date_converter import date_converter
+
+
+def make_data_list(links: list, cik: str) -> list:
     share_data: list = []
     for pair in links:
         link = pair[1]
@@ -20,7 +22,7 @@ def make_data_list(links: str, cik: str) -> list:
         # I've created a generic list of lists so that it can be iterated over. rather than making multiple calls
         mega_list = [[] for i in range(4)]  # index 0 = assets, index 1 = shares, index 2 = liabilities
         soup_list = []
-        filing_date: date = None
+        filing_date: date = '20000101'
         assets = None
         liabilities = None
         shares = None
@@ -58,18 +60,20 @@ def make_data_list(links: str, cik: str) -> list:
             elif index == 0 and 'Consolidated Balance Sheets' in str(row):
                 for i, line in enumerate(row.find_all('th')):
                     if i == 1:
-                        filing_date = line.text.strip()
+                        date = line.text.strip()
+                        filing_date = date_converter(date)
             else:
                 continue
 
-        temp_dict = {'filing_number': link[-25:-7],
+        temp_dict = {'year_end': filing_date,
+                     'cik_num': cik,
                      'assets': assets,
                      'liabilities': liabilities,
                      'shares': shares,
-                     'new_shares': (parse_data_2(soup_list[mega_list[1][0]], 1) - parse_data_2(soup_list[mega_list[1][0]], 2)),
-                     'year_end': filing_date,
-                     'cik_num': cik,
-                     'div_paid': div_paid
+                     'div_paid': div_paid,
+                     'report_num': link[-25:-7],
+                     'new_shares': (parse_data_2(soup_list[mega_list[1][0]], 1) -
+                                    parse_data_2(soup_list[mega_list[1][0]], 2))
                      }
 
         share_data.append(temp_dict)

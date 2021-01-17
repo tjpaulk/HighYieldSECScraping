@@ -2,14 +2,14 @@ from .db_connection import db_connection
 
 
 # def insert_filings_table(directory_list: list) -> None:
-def insert_filings_table(directory_list: list, table: str, table_name: str) -> None:
+def insert_filings_table(insert_list: list, table: str, table_name: str) -> None:
     """
     Currently for table filings_table, checks to see if a filing is already stored in db and
     adds only if it is not.  I hope to enable this function to do bulk inserts into multiple db tables.
 
     Parameters
     ----------
-    directory_list : list
+    insert_list : list
         A list containing filing directories.
     table : str
         A string document currently containing formatting to insert into the filings_table of the db.
@@ -20,9 +20,7 @@ def insert_filings_table(directory_list: list, table: str, table_name: str) -> N
     -------
     None
 
-    Future:  Can this be improved so that it can add sql_functions to different tables?
-    Perhaps create a list of templates elsewhere to insert as a parameter.
-    Also look at inserting all of the sql_functions at once instead of looping through.  Perhaps
+    Future:  Look at inserting all of the sql_functions at once instead of looping through.  Perhaps
     by using a dataframe or list of lists.
 
     Eventually save only certain form types since most will never be used.  Need to figure out
@@ -31,11 +29,11 @@ def insert_filings_table(directory_list: list, table: str, table_name: str) -> N
 
     cursor_object = db_connection()
 
-    for filing in directory_list:
+    for filing in insert_list:
         value_list = []
 
         value = filing['report_num']
-
+        print('value : ', value)
         cursor_object.execute("""SELECT report_num
                                 FROM HighYieldSEC.dbo.{} 
                                 WHERE report_num = '{}'""".format(table_name, value))
@@ -45,7 +43,6 @@ def insert_filings_table(directory_list: list, table: str, table_name: str) -> N
         if exists is None:
             for x in filing.values():
                 value_list.append(x)
-                print(x)
 
             cursor_object.execute(table, value_list)
             cursor_object.commit()

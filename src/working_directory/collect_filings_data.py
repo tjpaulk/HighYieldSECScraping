@@ -22,6 +22,8 @@ from src.csv_json_xml_functions.save_to_xml import *
 """
 
 
+csv_file = '../sec_data_files/filing_list.csv'
+json_file = '../sec_data_files/filing_list.json'
 cik_list: list = [{'GGN': '0001313510'}, {'SUNS': '0001508171'}, {'GOF': '0001380936'},
                   {'GAIN': '0001321741'}, {'FDUS': '0001513363'}, {'WMC': '0001465885'}]
 table_name: str = 'filings_table'
@@ -41,8 +43,9 @@ for cik_dict in cik_list[:3]:
 
         # insert_filings_table(directory_list, table, table_name)
 
-        # save_to_csv(directory_list)
+        # save_to_csv(directory_list, csv_file)
 
-        # save_to_json(directory_list)
+        # save_to_json(directory_list, json_file)
 
+        # not yet implemented
         # save_to_xml(directory_list)

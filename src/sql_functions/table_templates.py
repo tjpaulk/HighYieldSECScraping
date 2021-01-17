@@ -30,18 +30,18 @@ def table_templates(key: str) -> str:
             """
             INSERT INTO [HighYieldSEC].[dbo].[sec_data]
              (
-                [filing_number],
                 [date_filed],
                 [cik_num],
                 [total_assets],
                 [total_liabilities],
                 [common_shares],
-                [new_shares],
-                [div_paid]
+                [div_paid],
+                [report_num],
+                [new_shares]
             )
             VALUES
             (
-                ?, ?, ?, ?, ?, ?, ?
+                ?, ?, ?, ?, ?, ?, ?, ?
             )
             """
         }

@@ -2,13 +2,13 @@ import json
 import os
 
 
-def write_to_json(data, filename):
-    with open(filename, 'w') as fp:
+def write_to_json(data, json_file: str) -> None:
+    with open(json_file, 'w') as fp:
         json.dump(data, fp, sort_keys=True, indent=4)
 
 
-def save_to_json(directory_list: list) -> None:
-    json_file = '../sec_data_files/filing_list.json'
+def save_to_json(directory_list: list, json_file: str) -> None:
+
     json_file_exists = os.path.isfile(json_file)
     dict_list = directory_list
     append_json = []

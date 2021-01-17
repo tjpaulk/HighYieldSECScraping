@@ -1,0 +1,82 @@
+[
+    {
+        "assets": 5160971,
+        "cik_num": "0001465885",
+        "div_paid": null,
+        "filing_number": "000162828020003097",
+        "liabilities": 4596510,
+        "new_shares": 5407497,
+        "shares": 53523876,
+        "year_end": "Dec. 31, 2019"
+    },
+    {
+        "assets": 4497395,
+        "cik_num": "0001465885",
+        "div_paid": null,
+        "filing_number": "000162828019002555",
+        "liabilities": 3994386,
+        "new_shares": 6322300,
+        "shares": 48116379,
+        "year_end": "Dec. 31, 2018"
+    },
+    {
+        "assets": 3886906,
+        "cik_num": "0001465885",
+        "div_paid": null,
+        "filing_number": "000162828018003838",
+        "liabilities": 3420868,
+        "new_shares": -125722,
+        "shares": 41794079,
+        "year_end": "Dec. 31, 2017"
+    },
+    {
+        "assets": 3156016,
+        "cik_num": "0001465885",
+        "div_paid": null,
+        "filing_number": "000162828017002234",
+        "liabilities": 2725534,
+        "new_shares": 200000,
+        "shares": 41919801,
+        "year_end": "Dec. 31, 2016"
+    },
+    {
+        "assets": 3414563,
+        "cik_num": "0001465885",
+        "div_paid": null,
+        "filing_number": "000104746916011025",
+        "liabilities": 2902915,
+        "new_shares": 200000,
+        "shares": 41919801,
+        "year_end": "Dec. 31, 2015"
+    },
+    {
+        "assets": null,
+        "cik_num": "0001465885",
+        "div_paid": null,
+        "filing_number": "000104746915002266",
+        "liabilities": null,
+        "new_shares": 0,
+        "shares": 0,
+        "year_end": "Dec. 31, 2014"
+    },
+    {
+        "assets": null,
+        "cik_num": "0001465885",
+        "div_paid": null,
+        "filing_number": "000104746914002513",
+        "liabilities": null,
+        "new_shares": 2709343,
+        "shares": 26853287,
+        "year_end": null
+    },
+    {
+        "assets": null,
+        "cik_num": "0001465885",
+        "div_paid": null,
+        "filing_number": "000104746913004105",
+        "liabilities": null,
+        "new_shares": 24143844,
+        "shares": 24143944,
+        "year_end": null
+    }
+]
